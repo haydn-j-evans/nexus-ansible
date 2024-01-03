@@ -69,7 +69,6 @@ server {
              proxy_set_header X-Real-IP $remote_addr;
              proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
              proxy_set_header X-Forwarded-Proto "https";
-             proxy_pass http://{{ nexus_backend_name }}:{{ nexus_backend_port }};
 
              add_header X-Frame-Options "SAMEORIGIN" always;
              add_header X-XSS-Protection "1; mode=block" always;
@@ -79,4 +78,6 @@ server {
              # add_header Strict-Transport-Security "max-age=31536000; includeSubDomains; preload" always;
              # enable strict transport security only if you understand the implications
         }
+
+
 }

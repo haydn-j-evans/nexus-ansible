@@ -27,7 +27,11 @@ nexus_autoconfiguration: false
 # === Nginx
 nexus_nginx_docker_image: nginx:latest
 nexus_backend_name: nexus
-nexus_backend_port: 8081
+nexus_backend_ports: 
+  - 8081: 8081
+  - 8082: 8082
+  - 8083: 8083
+  - .....
 nexus_server_name: nexus.example.org
 # Example: nexus_server_alias: repo.example.org
 nexus_server_alias: 

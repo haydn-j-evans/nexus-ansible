@@ -7,9 +7,14 @@ services:
     stop_grace_period: 120s
     image: {{ nexus_docker_image }}
     ports:
-      - 8081:8081
+    {% for port_mapping in nexus_backend_port_mappings %}
+      - {{ port_mapping }}
+    {% endfor %}
     volumes:
-      - /srv/nexus/nexus-data:/nexus-data
+    {% for volume_mapping in nexus_backend_volume_mappings %}
+      - {{ volume_mapping }}
+    {% endfor %}
+
 
   nginx:
     restart: unless-stopped
